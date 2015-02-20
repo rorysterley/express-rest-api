@@ -28,7 +28,12 @@ Start server: (in new terminal window)
 ```
 $ node server.js
 ```
-
+<br>
+<br>
+You may find superagent and superagent-cli helpful:
+```
+npm install -g superagent superagent-cli
+```
 
 Usage
 -----
