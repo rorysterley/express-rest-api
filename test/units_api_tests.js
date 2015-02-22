@@ -12,6 +12,19 @@ chai.use(chaihttp);
 var expect = chai.expect;
 
 describe('units api end points', function() {
+  var eat_id;
+
+  before(function(done) {
+    chai.request('localhost:3000/api/v1')
+    .post('/create_user')
+    .send({email: "test@example.com", password: "foobar123"})
+    .end(function(err, res) {
+      expect(err).to.eql(null);
+      eat_id = res.body.eat;
+      done();
+    });
+  });
+
   after(function(done) {
     mongoose.connection.db.dropDatabase(function() {
       done();
@@ -20,7 +33,7 @@ describe('units api end points', function() {
 
   it('should respond to a post request', function(done) {
     chai.request('localhost:3000/api/v1')
-    .post('/units')
+    .post('/units/' + eat_id)
     .send({unitType: "giraffe", unitAttack: "Strobe Lights", unitHP: "165"})
     .end(function(err, res) {
       expect(err).to.eql(null);
@@ -35,10 +48,22 @@ describe('units api end points', function() {
 
 describe('already have data in database', function() {
   var id;
+  var eat_id;
+
+  before(function(done) {
+    chai.request('localhost:3000/api/v1')
+    .post('/create_user')
+    .send({email: "test@example.com", password: "foobar123"})
+    .end(function(err, res) {
+      expect(err).to.eql(null);
+      eat_id = res.body.eat;
+      done();
+    });
+  });
 
   beforeEach(function(done) {
     chai.request('localhost:3000/api/v1')
-    .post('/units')
+    .post('/units/' + eat_id)
     .send({unitType: 'Kakarot', unitAttack: 'Over 9000!', unitHP: '1500'})
     .end(function(err, res) {
       id = res.body._id;
@@ -55,6 +80,7 @@ describe('already have data in database', function() {
   it('should have an index', function(done) {
     chai.request('localhost:3000/api/v1')
     .get('/units')
+    .send({eat: eat_id})
     .end(function(err, res) {
       expect(err).to.eql(null);
       expect(Array.isArray(res.body)).to.be.true; // jshint ignore:line
