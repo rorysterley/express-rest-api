@@ -16,7 +16,7 @@
       <li>
         {{unit.unitType}}
         <form data-ng-if='unit.editing'>
-          <label for='unit{{unit._id}}'>Edit Unit<label>
+          <label for='unit{{unit._id}}'>Edit Unit</label>
           <input type='text' id='unit{{unit._id}}' data-ng-model='unit.unitType'>
           <button type='submit' data-ng-click='save(unit)'>Save Changes</button>
           <button type='button' data-ng-click='editToggle(unit)'>Cancel</button>
