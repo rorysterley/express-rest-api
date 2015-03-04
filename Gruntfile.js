@@ -15,11 +15,15 @@ module.exports = function(grunt) {
       },
     src: ['Gruntfile.js',
           'test/**/*.js',
-          'lib/**/*.js']
+          'lib/**/*.js',
+          '!test/**/*_bundle.js']
     },
     simplemocha: {
       all: {
-        src: ['test/**/*.js']
+        src: [
+        'test/**/*.js',
+        '!test/client_side/*'
+        ]
       }
     },
     watch: {

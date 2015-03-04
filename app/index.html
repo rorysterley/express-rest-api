@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Hello From Html</title>
+</head>
+<body data-ng-app='unitsApp'>
+  <main data-ng-controller='unitsController' data-ng-init='getAll()'>
+    <h1>Units:</h1>
+    <form name='newUnitName'>
+      <label for='newUnitType'>New Unit</label>
+      <input type='text' id='newUnitType' data-ng-model='newUnit.unitType'>
+      <button type='submit' data-ng-click='create(newUnit)'>Save New Unit</button>
+    </form>
+    <ul data-ng-repeat='unit in units'>
+      <li>
+        {{unit.unitType}}
+        <form data-ng-if='unit.editing'>
+          <label for='unit{{unit._id}}'>Edit Unit<label>
+          <input type='text' id='unit{{unit._id}}' data-ng-model='unit.unitType'>
+          <button type='submit' data-ng-click='save(unit)'>Save Changes</button>
+          <button type='button' data-ng-click='editToggle(unit)'>Cancel</button>
+        </form>
+        <button data-ng-click='editToggle(unit)' data-ng-if='!unit.editing'>Edit Unit</button>
+        <button data-ng-click='remove(unit)'>Delete Unit</button>
+      </li>
+    </ul>
+  </main>
+
+  <script src='bundle.js'></script>
+</body>
+</html>
