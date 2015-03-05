@@ -1,7 +1,7 @@
 'use strict';
 
 process.env.MONGO_URI = 'mongodb://localhost/unitsapp_test';
-require('../server');
+require('../../server');
 
 var mongoose = require('mongoose');
 var chai = require('chai');
@@ -9,7 +9,7 @@ var chaihttp = require('chai-http');
 
 chai.use(chaihttp);
 
-var expect = chai.expect;
+var expect = chai.expect;  // jshint ignore:line
 
 describe('units api end points', function() {
   after(function(done) {

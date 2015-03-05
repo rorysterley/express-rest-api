@@ -1,6 +1,6 @@
 'use strict';
 
-var expect = chai.expect;  // will need to add chai to jshint globals
+var expect = chai.expect;  // jshint ignore:line
 var greet = require('../../app/js/greet');
 
 describe('test greet', function() {
