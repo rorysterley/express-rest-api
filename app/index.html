@@ -7,17 +7,28 @@
 <body data-ng-app='unitsApp'>
   <main data-ng-controller='unitsController' data-ng-init='getAll()'>
     <h1>Units:</h1>
-    <form name='newUnitName'>
-      <label for='newUnitType'>New Unit</label>
-      <input type='text' id='newUnitType' data-ng-model='newUnit.unitType'>
+    <form name='newUnit'>
+      <label for='newUnit'>Create New Unit</label><br>
+      <label for='newUnitType'>Type</label>
+      <input type='text' id='newUnitType' data-ng-model='newUnit.unitType'><br>
+      <label for='newUnitAttack'>Attack</label>
+      <input type='text' id='newUnitAttack' data-ng-model='newUnit.unitAttack'><br>
+      <label for='newUnitHP'>HP</label>
+      <input type='text' id='newUnitHP' data-ng-model='newUnit.unitHP'><br>
       <button type='submit' data-ng-click='create(newUnit)'>Save New Unit</button>
     </form>
     <ul data-ng-repeat='unit in units'>
       <li>
-        {{unit.unitType}}
+        Type: {{unit.unitType}}<br>
+        Attack: {{unit.unitAttack}}<br>
+        HP: {{unit.unitHP}}<br>
         <form data-ng-if='unit.editing'>
-          <label for='unit{{unit._id}}'>Edit Unit</label>
-          <input type='text' id='unit{{unit._id}}' data-ng-model='unit.unitType'>
+          <label for='unit{{unit._id}}'>Edit Type</label>
+          <input type='text' id='unit{{unit._id}}' data-ng-model='unit.unitType'><br>
+          <label for='unit{{unit._id}}'>Edit Attack</label>
+          <input type='text' id='unit{{unit._id}}' data-ng-model='unit.unitAttack'><br>
+          <label for='unit{{unit._id}}'>Edit HP</label>
+          <input type='text' id='unit{{unit._id}}' data-ng-model='unit.unitHP'><br>
           <button type='submit' data-ng-click='save(unit)'>Save Changes</button>
           <button type='button' data-ng-click='editToggle(unit)'>Cancel</button>
         </form>
