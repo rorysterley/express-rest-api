@@ -33,7 +33,10 @@ module.exports = function(app) {
   });
 
   app.delete('/units/:id', function(req, res) {
-    Unit.remove({_id: req.params.id}, true);
-    res.end();
+    Unit.remove({_id: req.params.id}, function(err) {
+      if (err) return res.status(500).send({'msg': 'could not delete'});
+
+      res.json({'msg': 'success!'});
+    });
   });
 };

@@ -1,11 +1,14 @@
 {
   "node": true,
+  "jasmine": true,
   "globals": {
     "describe": true,
     "it": true,
     "before": true,
     "beforeEach": true,
     "after": true,
-    "module": true
+    "module": true,
+    "chai": true,
+    "angular": true
   }
 }
