@@ -4,3 +4,4 @@ build
 test/client_side/test_bundle.js
 test/karma_tests/karma_test_bundle.js
 bower_components
+notes.txt

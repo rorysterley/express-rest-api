@@ -1,0 +1,10 @@
+<form name='newUnit'>
+  <label for='newUnit'>Create New Unit</label><br>
+  <label for='newUnitType'>Type</label>
+  <input type='text' id='newUnitType' data-ng-model='newUnit.unitType'><br>
+  <label for='newUnitAttack'>Attack</label>
+  <input type='text' id='newUnitAttack' data-ng-model='newUnit.unitAttack'><br>
+  <label for='newUnitHP'>HP</label>
+  <input type='text' id='newUnitHP' data-ng-model='newUnit.unitHP'><br>
+  <button type='submit' data-ng-click='create(newUnit)'>Save New Unit</button>
+</form>
