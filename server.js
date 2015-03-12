@@ -7,6 +7,8 @@ var unitsRoutes = require('./routes/units_routes');
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/unitsapp_development');
 
 var app = express();
+app.use(express.static(__dirname + '/build'));
+
 var router = express.Router();
 
 unitsRoutes(router);
