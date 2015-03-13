@@ -1,0 +1,20 @@
+{
+  "name": "express-rest-api",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rorysterley/express-rest-api",
+  "authors": [
+    "Rory Sterley <royrsterley@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.0",
+    "jquery": "~2.1.3"
+  }
+}
