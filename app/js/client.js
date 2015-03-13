@@ -15,12 +15,10 @@ var UnitForm = React.createClass({
     if(id === 'newunittype') {
       current.unitType = value;
       this.setState({newUnit: current});
-    } else
-    if(id === 'newunitattack') {
+    } else if(id === 'newunitattack') {
       current.unitAttack = value;
       this.setState({newUnit: current});
-    } else
-    if(id === 'newunithp') {
+    } else if(id === 'newunithp') {
       current.unitHP = value;
       this.setState({newUnit: current});
     }
