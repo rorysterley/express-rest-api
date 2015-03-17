@@ -55,7 +55,7 @@ module.exports = function(grunt) {
         dest: 'build/bundle.js'
       },
       options: {
-        transform: ['reactify','debowerify']
+        transform: ['reactify']
       }
     },
   });
